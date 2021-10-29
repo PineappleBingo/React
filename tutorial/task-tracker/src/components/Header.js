@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types'
 
-
 const Header = ({ title }) => {
     return (
         <Header>
-            <h1>{title}</h1>
+            <h1>{ title }</h1>
+            <button className='btn'>Add</button>
         </Header>
     )
 }
 
 Header.defaultProps = {
-    title : 'Task Tracker',
+    title: 'Task Tracker',
 }
 
 Header.propTypes = {
@@ -22,6 +22,5 @@ Header.propTypes = {
 //     color = 'red',
 //     backgroundColor = 'black',
 // }
-
 
 export default Header

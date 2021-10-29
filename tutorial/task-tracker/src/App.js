@@ -1,14 +1,13 @@
 import Header from './components/Header'
 
-function App() {
+const App = () => {
+  return (
+    <div className="container">
+      <Header />
+    </div>
+  )
+}
   
-    return (
-        <div className="container">
-          <Header />
-        </div>
-      );
-    }
-    
 // // class style
 // import React from 'react'
 // class App extends React.Component{
