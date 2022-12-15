@@ -28,11 +28,6 @@ const element = <Welcom name="Sara" />;
 
 root.render(element)
 
-
-
-
-
-
 // Properties(Props) :
 // 
 // 
