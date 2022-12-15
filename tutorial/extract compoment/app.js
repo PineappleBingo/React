@@ -1,33 +1,51 @@
-// Extract Components
+// Extract Components Example
 
-function ProductInfo(props){
-    return(
-        <ol className ="productInfo">
-            <list className="product-model">{props.model}</list>
-            <list className="product-maker">{props.maker}</list>
-            <list className="product-year">{props.year}</list>
-            <list className="product-wheel">{props.wheel}</list>
-            <list className="product-engine">
-                < EngineSpec 
-                    model={props.EngineSpec}
-                />
-            </list>
-        </ol>
-    );
-}
 
+// Extract EngineSpec from ProductInfo
 function EngineSpec(props){
     return(
         <ul className="engine-spec">
-            <list className="engine-model">{props.model.model}</list> 
-            <list className="engine-cylinder">{props.model.cylinder}</list>
-            <list className="engine-horsepower">{props.model.horsepower}</list>
-            <list className="engine-mode">{props.model.mode}</list>
+            <li className="engine-model">{props.model.model}</li> 
+            <li className="engine-cylinder">{props.model.cylinder}</li>
+            <li className="engine-horsepower">{props.model.horsepower}</li>
+            <li className="engine-mode">{props.model.mode}</li>
         </ul>
     );
 }
 
-// product object
+// Extract ProductInfo
+function ProductInfo(props){
+    return(
+        <ol className ="productInfo">
+            <li className="product-model">{props.model}</li>
+            <li className="product-maker">{props.maker}</li>
+            <li className="product-year">{props.year}</li>
+            <li className="product-wheel">{props.wheel}</li>
+            <li className="product-engine">
+                < EngineSpec 
+                    model={props.engine}
+                />
+            </li>
+        </ol>
+    );
+}
+
+function Product(props){
+    return(
+        <div className="product">
+            <h1>2022 {props.maker} model</h1>
+            <ProductInfo
+                model = {props.model}
+                maker = {props.maker}
+                year = {props.yaer}
+                wheel = {props.wheel}
+                engine = {props.engine}
+            />
+        </div>
+    );
+}
+
+// product object data
 const product = {
     model: "HR-V",
     maker: "honda",
@@ -45,7 +63,7 @@ const product = {
 // root render element
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    < product
+    < Product
         model = {product.model} 
         maker = {product.maker}
         year = {product.year}
