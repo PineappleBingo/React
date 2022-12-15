@@ -5,10 +5,10 @@
 function EngineSpec(props){
     return(
         <ul className="engine-spec">
-            <li className="engine-model">{props.model.model}</li> 
-            <li className="engine-cylinder">{props.model.cylinder}</li>
-            <li className="engine-horsepower">{props.model.horsepower}</li>
-            <li className="engine-mode">{props.model.mode}</li>
+            <li className="engine-model">Model: {props.model.model}</li> 
+            <li className="engine-cylinder">#Cylinder: {props.model.cylinder}</li>
+            <li className="engine-horsepower">HP: {props.model.horsepower}</li>
+            <li className="engine-mode">Mode: {props.model.mode}</li>
         </ul>
     );
 }
@@ -17,11 +17,12 @@ function EngineSpec(props){
 function ProductInfo(props){
     return(
         <ol className ="productInfo">
-            <li className="product-model">{props.model}</li>
-            <li className="product-maker">{props.maker}</li>
-            <li className="product-year">{props.year}</li>
-            <li className="product-wheel">{props.wheel}</li>
+            <li className="product-model">Model: {props.model}</li>
+            <li className="product-maker">Maker: {props.maker}</li>
+            <li className="product-year">Year: {props.year}</li>
+            <li className="product-wheel">Wheel: {props.wheel}</li>
             <li className="product-engine">
+                <span> Engine Specification:</span>
                 < EngineSpec 
                     model={props.engine}
                 />
@@ -37,7 +38,7 @@ function Product(props){
             <ProductInfo
                 model = {props.model}
                 maker = {props.maker}
-                year = {props.yaer}
+                year = {props.year}
                 wheel = {props.wheel}
                 engine = {props.engine}
             />
@@ -48,7 +49,7 @@ function Product(props){
 // product object data
 const product = {
     model: "HR-V",
-    maker: "honda",
+    maker: "Honda",
     year: "2022",
     wheel: "4",
     engine:
