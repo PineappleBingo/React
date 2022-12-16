@@ -1,3 +1,31 @@
+import logo from './logo.svg';
+import './App.css';
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//           Edit <code>src/App.js</code> and save to reload.
+//         </p>
+//         <a
+//           className="App-link"
+//           href="https://reactjs.org"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Learn React
+//         </a>
+//       </header>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
 // Extract Components Example
 
 // Extract EngineSpec from ProductInfo
@@ -30,7 +58,8 @@ function ProductInfo(props){
     );
 }
 
-function Product(props){
+function App(props){
+    
     return(
         <div className="product">
             <h1>2022 {props.maker} model</h1>
@@ -45,29 +74,19 @@ function Product(props){
     );
 }
 
-// product object data
-const product = {
-    model: "HR-V",
-    maker: "Honda",
-    year: "2022",
-    wheel: "4",
-    engine:
-    {
-        model: "TurboX2",
-        cylinder: 4,
-        horsepower: 150,
-        mode: "FWD",
-    }
-}
 
-// root render element
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-    < Product
-        model = {product.model} 
-        maker = {product.maker}
-        year = {product.year}
-        wheel = {product.wheel}
-        engine = {product.engine}
-    />
-);   
+
+// // root render element
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(
+//     < Product
+//         model = {product.model} 
+//         maker = {product.maker}
+//         year = {product.year}
+//         wheel = {product.wheel}
+//         engine = {product.engine}
+//     />
+// );   
+
+
+export default App;
