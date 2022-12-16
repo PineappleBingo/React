@@ -1,27 +1,29 @@
+import React, { Component } from 'react';  
 import logo from './logo.svg';
 import './App.css';
 
-
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Welcome1 name="David" />
+      <Welcome2 name="Jinho" />
     </div>
   );
+}
+
+function Welcome1(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+// Equivalent in ES6 class
+class Welcome2 extends React.Component {
+    
+    render() {
+    
+        const title = ' Staff Analyst I';
+        return <h1>Hello, {this.props.name} {title}</h1>;
+    // this refers to Window Object(Global Scope)(?)
+  }
 }
 
 export default App;
