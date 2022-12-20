@@ -17,17 +17,23 @@ import React, {Component} from 'react'
 // For example, if we have five components that need data or information from the state, 
 // then we need to create one container component that will keep the state for all of them.
 
+// To set the state, it is required to call the super() method in the constructor. 
+// It is because this.state is uninitialized before the super() method has been called.
 
 class App extends React.Component {
   
   constructor(){
     super();
-    this.state = {
-      isDataIn: true,
-    }
-    
+    this.state = { isDataIn: false }
+    console.log("Component This:", this);
+    this.toggleData = this.toggleData.bind(this);
   }
-  render(){
+
+  toggleData(){
+    this.setState({isDataIn: !this.state.isDataIn});
+  }
+
+  render(){ 
     const Mssg = this.state.isDataIn ? (        
         <span>Data In</span>
       ) :
@@ -38,6 +44,7 @@ class App extends React.Component {
       return (
         <div ClassName="MessageBox">
           <h1>Checking Data: {Mssg}</h1>
+          <button onClick={this.toggleData}> Click </button>
         </div>
       );
   }
