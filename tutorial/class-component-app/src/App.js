@@ -21,9 +21,9 @@ import React, {Component} from 'react';
 
 
 // ES6 Syntax
-function App extends React.Component {
-  constructor{
-    super();
+class App extends React.Component {
+  constructor(){
+    super();  
     this.state ={
       data:
       [
@@ -40,14 +40,16 @@ function App extends React.Component {
       ]
     }
   }
-  render(
+  render(){
+    return(
     <div>
       <StudentName />
       <ul>
         {this.state.data.map((item) => <List data = {item}/>)}
       </ul>
     </div>
-  );
+    );
+  }   
 }
 
 class StudentName extends React.Component{
@@ -61,5 +63,12 @@ class StudentName extends React.Component{
   }
 }
 
+class List extends React.Component{
+  render(){
+    return(
+      <ol>{this.props.data.name}</ol>
+    );
+  }
+}
 
 export default App;
