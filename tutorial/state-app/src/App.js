@@ -28,14 +28,17 @@ class App extends React.Component {
     
   }
   render(){
-    const Mssg = this.state.isDataIn ? (
-        <div ClassName="MessageBox">
-          <span>Data In</span>
-        </div>      
-      ) : null; 
+    const Mssg = this.state.isDataIn ? (        
+        <span>Data In</span>
+      ) :
+      (
+        <span> Data not In</span>
+      ); 
   
       return (
-        <h1>Checking Data: {Mssg}</h1>
+        <div ClassName="MessageBox">
+          <h1>Checking Data: {Mssg}</h1>
+        </div>
       );
   }
 }
