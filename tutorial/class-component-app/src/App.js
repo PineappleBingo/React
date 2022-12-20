@@ -25,16 +25,19 @@ class App extends React.Component {
   constructor(){
     super();  
     this.state ={
-      data:
+      employee:
       [
         {
           "name": "David1",
+          "email": "100@gmail.com",
         },
         {
           "name": "David2",
+          "email": "200@gmail.com",
         },
         {
           "name": "David3",
+          "email": "300@gmail.com",
         }
         ,
       ]
@@ -45,7 +48,10 @@ class App extends React.Component {
     <div>
       <StudentName />
       <ul>
-        {this.state.data.map((item) => <List data = {item}/>)}
+        {this.state.employee.map((item) => <NameList name = {item}/>)}
+      </ul>
+      <ul>
+        {/* {this.state.employee.map((item) => <EmailList email = {item}/>)} */}
       </ul>
     </div>
     );
@@ -63,12 +69,21 @@ class StudentName extends React.Component{
   }
 }
 
-class List extends React.Component{
+class NameList extends React.Component{
   render(){
     return(
-      <ol>{this.props.data.name}</ol>
+      <ol>{this.props.employee.name}</ol>
     );
   }
 }
+
+class EmailList extends React.Component{
+  render(){
+    return(
+      <ol>{this.props.employee.email}</ol>
+    );
+  }
+}
+
 
 export default App;
