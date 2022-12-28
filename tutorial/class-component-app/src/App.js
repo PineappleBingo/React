@@ -19,75 +19,32 @@ import React, {Component} from 'react';
 //   }  
 // }  
 
-
 // ES6 Syntax
 class App extends React.Component {
   constructor(){
     super();  
     this.state ={
-      students:
+      data:
       [
         {
-          id: 1,
           name: "David",
-          email: "100@gmail.com",
         },
         {
-          id: 2,
           name: "Peter",
-          email: "200@gmail.com",
         },
         {
-          id: 3,
           name: "Scott",
-          email: "300@gmail.com",
         }
-        ,
+        , 
       ]
     }
-    
   }
   render(){
-
-    // Opt1. Declare var with each state's item
-    const stsInfo1 = this.state.students.map((st,index) =>
-      <li key={index}>{st.name}</li>
-    );
-
-    const stsInfo2= this.state.students.map((st, index) => 
-      <li key={index}>{st.email}</li>
-    );
-
     return(
-      <div>
-        <StudentName />
-        
-        <span>Opt1.</span>
-        <ul>
-          {stsInfo1}
-        </ul>
-        
-        <ul>
-          {stsInfo2}
-        </ul>
-      
-      <hr />
-      <span>Opt2.</span>
-
+    <div>
+      <StudentName />
       <ul>
-        { this.state.students.map((student) => (
-          <li>{student.name}</li>
-        ))}
-        
-        {/* {this.state.students.map((student) => <NameList name = {student}/>)} */}
-
-      </ul>
-      <ul>
-        {this.state.students.map((student) => (
-          <li>{student.email}</li>
-        ))}
-
-        {/* {this.state.employee.map((item) => <EmailList email = {item}/>)} */}
+        {this.state.data.map((item) => <List data = {item}/>)}
       </ul>
     </div>
     );
@@ -95,27 +52,17 @@ class App extends React.Component {
 }
 
 class StudentName extends React.Component{
-  render(){
-    return(
-      <div>
-        <h1>Student Name Detail</h1>
-      </div>
-    );
+render(){
+  return(
+   <h1>Student Name List</h1>
+  );
   }
 }
 
-class NameList extends React.Component{
+class List extends React.Component{
   render(){
     return(
-      <ol>{this.props.student.name}</ol>
-    );
-  }
-}
-
-class EmailList extends React.Component{
-  render(){
-    return(
-      <ol>{this.props.student.email}</ol>
+      <ol>{this.props.data.name}</ol>
     );
   }
 }
