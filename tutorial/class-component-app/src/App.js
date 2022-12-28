@@ -45,15 +45,40 @@ class App extends React.Component {
         ,
       ]
     }
+    
   }
   render(){
+
+    // Opt1. Declare var with each state's item
+    const stsInfo1 = this.state.students.map((st,index) =>
+      <li key={index}>{st.name}</li>
+    );
+
+    const stsInfo2= this.state.students.map((st, index) => 
+      <li key={index}>{st.email}</li>
+    );
+
     return(
       <div>
-      <StudentName />
+        <StudentName />
+        
+        <span>Opt1.</span>
+        <ul>
+          {stsInfo1}
+        </ul>
+        
+        <ul>
+          {stsInfo2}
+        </ul>
+      
+      <hr />
+      <span>Opt2.</span>
+
       <ul>
         { this.state.students.map((student) => (
           <li>{student.name}</li>
         ))}
+        
         {/* {this.state.students.map((student) => <NameList name = {student}/>)} */}
 
       </ul>
@@ -75,7 +100,6 @@ class StudentName extends React.Component{
       <div>
         <h1>Student Name Detail</h1>
       </div>
-
     );
   }
 }
