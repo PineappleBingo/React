@@ -1,25 +1,123 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+// Class Component
+// Class components are more complex than functional components. 
+// It requires you to extend from React. Component and create a render function which 
+// returns a React element. You can pass data from one class to other class components. 
+// You can create a class by defining a class that extends Component and has a render function. 
+// Valid class component is shown in the below example.
+
+
+// syntax
+// class MyComponent extends React.Component {  
+//   render() {  
+//     return (  
+//       <div>This is main component.</div>  
+//     );  
+//   }  
+// }  
+
+
+// ES6 Syntax
+class App extends React.Component {
+  constructor(){
+    super();  
+    this.state ={
+      students:
+      [
+        {
+          id: 1,
+          name: "David",
+          email: "100@gmail.com",
+        },
+        {
+          id: 2,
+          name: "Peter",
+          email: "200@gmail.com",
+        },
+        {
+          id: 3,
+          name: "Scott",
+          email: "300@gmail.com",
+        }
+        ,
+      ]
+    }
+    
+  }
+  render(){
+
+    // Opt1. Declare var with each state's item
+    const stsInfo1 = this.state.students.map((st,index) =>
+      <li key={index}>{st.name}</li>
+    );
+
+    const stsInfo2= this.state.students.map((st, index) => 
+      <li key={index}>{st.email}</li>
+    );
+
+    return(
+      <div>
+        <StudentName />
+        
+        <span>Opt1.</span>
+        <ul>
+          {stsInfo1}
+        </ul>
+        
+        <ul>
+          {stsInfo2}
+        </ul>
+      
+      <hr />
+      <span>Opt2.</span>
+
+      <ul>
+        { this.state.students.map((student) => (
+          <li>{student.name}</li>
+        ))}
+        
+        {/* {this.state.students.map((student) => <NameList name = {student}/>)} */}
+
+      </ul>
+      <ul>
+        {this.state.students.map((student) => (
+          <li>{student.email}</li>
+        ))}
+
+        {/* {this.state.employee.map((item) => <EmailList email = {item}/>)} */}
+      </ul>
     </div>
-  );
+    );
+  }   
+}
+
+class StudentName extends React.Component{
+  render(){
+    return(
+      <div>
+        <h1>Student Name Detail</h1>
+      </div>
+    );
+  }
+}
+
+class NameList extends React.Component{
+  render(){
+    return(
+      <ol>{this.props.student.name}</ol>
+    );
+  }
+}
+
+class EmailList extends React.Component{
+  render(){
+    return(
+      <ol>{this.props.student.email}</ol>
+    );
+  }
 }
 
 export default App;
