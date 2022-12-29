@@ -1,11 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
 
+
+function WeekDates(date = new Date()) {
+    let firstday = new Date(date.setDate(date.getDate() - date.getDay()));
+    let lastday = new Date(date.setDate(date.getDate() - date.getDay() + 6));
+    let days_of_week = [];
+    for (
+        let day = new Date(firstday);
+        day < lastday;
+        day.setDate(day.getDate() + 1)
+    ) {
+        days_of_week.push(new Date(day));
+    }
+    days_of_week.push(lastday);
+
+    return days_of_week;
+}
+
 function App() {
   
   const current = new Date();
   const date = current.getDate()+ '/' + current.getMonth() + '/' + current.getFullYear();
-  // console.log(typeof(date))
+  
+  let weekdates = []
+  weekdates = WeekDates();
+  console.log(weekdates);
+  // console.log(weekdates);
 
   return (
   
@@ -25,6 +46,15 @@ function App() {
       <h3>{new Intl.DateTimeFormat().format(current)}</h3>
       <h3>{new Intl.DateTimeFormat('es-US').format(current)}</h3>
       <h3>{new Intl.DateTimeFormat('ko-KR', { dateStyle: 'full', timeStyle: 'short', timeZone: 'Asia/Seoul'}).format(current)}</h3>
+      
+      <hr/>
+      <span>Function WeekDates()</span>
+      <>
+      {weekdates.map((d, idx) => (
+        <li key={idx}>{d.getDate()}</li>
+        ))} 
+      </>
+
     </div>
   );
 }
