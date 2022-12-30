@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 
-
 function WeekDates(date = new Date()) {
     let firstday = new Date(date.setDate(date.getDate() - date.getDay()));
     let lastday = new Date(date.setDate(date.getDate() - date.getDay() + 6));
@@ -26,7 +25,6 @@ function App() {
   let weekdates = []
   weekdates = WeekDates();
   console.log(weekdates);
-  // console.log(weekdates);
 
   return (
   
@@ -54,7 +52,7 @@ function App() {
         <li key={idx}>{d.getDate()}/{d.getMonth()+1}/{d.getFullYear()}</li>
         ))} 
       </>
-
+      
     </div>
   );
 }
