@@ -51,7 +51,7 @@ function App() {
       <span>Function WeekDates()</span>
       <>
       {weekdates.map((d, idx) => (
-        <li key={idx}>{d.getDate()}</li>
+        <li key={idx}>{d.getDate()}/{d.getMonth()+1}/{d.getFullYear()}</li>
         ))} 
       </>
 
