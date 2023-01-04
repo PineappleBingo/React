@@ -1,6 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 
+function FirstDay(date = new Date()){
+  // the day of the month - the day
+  let fd = new Date(date.setDate(date.getDate() - date.getDay()));
+  return fd.getDate();
+}
+
+function LastDay(date = new Date()){
+  // the day of the month - the day + 6(1 week)
+  let ld = new Date(date.setDate(date.getDate() - date.getDay() + 6));
+  return ld.getDate();
+}
+
 function WeekDates(date = new Date()) {
     let firstday = new Date(date.setDate(date.getDate() - date.getDay()));
     let lastday = new Date(date.setDate(date.getDate() - date.getDay() + 6));
@@ -25,6 +37,9 @@ function App() {
   let weekdates = []
   weekdates = WeekDates();
   console.log(weekdates);
+
+  let firstday = FirstDay();
+  let lastday = LastDay();
 
   return (
   
@@ -51,6 +66,8 @@ function App() {
       {weekdates.map((d, idx) => (
         <li key={idx}>{d.getDate()}/{d.getMonth()+1}/{d.getFullYear()}</li>
         ))} 
+      <h2>FistDay: {firstday}</h2>
+      <h2>LastDay: {lastday}</h2> 
       </>
       
     </div>
