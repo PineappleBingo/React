@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 
 const A = 65 // ASCII character code
 
+// Eaxample 1 ----------------------------------------------------------------
 class Alphabet extends React.Component {
   constructor(props) {
     super(props);
@@ -23,16 +24,13 @@ class Alphabet extends React.Component {
 
   handleClick(letter) {
     this.setState({ justClicked: letter });
-
     console.log(letter);
   }
 
   handlePush(letter){
     this.state.clickedList.push(letter);
     this.setState(this.state.clickedList);
-
     console.log(this.state.clickedList);
-
   }
 
   render() {
