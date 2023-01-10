@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
+import React, { useState } from 'react'
 
 // Reference 
 // Intro-Hook
@@ -9,24 +9,23 @@ import './App.css';
 // Effective-Hook
 // https://reactjs.org/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns
 
+// Hooks let you split one component into smaller functions based on what pieces are related 
+// (such as setting up a subscription or fetching data), rather than forcing a split based on lifecycle methods. 
+// You may also opt into managing the component’s local state with a reducer to make it more predictable
+
+// Hook-overview
+// https://reactjs.org/docs/hooks-overview.html
 
 function App() {
+
+  const [count, setCount] = useState(0);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
     </div>
   );
 }
