@@ -7,7 +7,7 @@ class Upgrade extends Component {
     // energy: this.props.energy,
     // description: this.props.description,
     // imageUrl: this.props.imageUrl,
-    count: this.props.count,
+    count: this.props.upgrade.count,
   };
 
   //   //   one solution
@@ -26,10 +26,10 @@ class Upgrade extends Component {
     return (
       <div>
         {/* directly getting name from props */}
-        <h2>{this.props.name}</h2>
-        <div>{this.props.energy}</div>
-        <img src={this.props.imageUrl} alt="" />
-        <div>{this.props.description}</div>
+        <h2>{this.props.upgrade.name}</h2>
+        <div>{this.props.upgrade.energy}</div>
+        <img src={this.props.upgrade.imageUrl} alt="" />
+        <div>{this.props.upgrade.description}</div>
         <span className="badge badge-warning m-2">{this.formatCount()}</span>
         <button
           onClick={this.handleIncrement}
@@ -39,7 +39,7 @@ class Upgrade extends Component {
         </button>
         <button
           className="btn btn-danger btn-sm m-2"
-          onClick={() => this.props.onDelete(this.props.id)}
+          onClick={() => this.props.onDelete(this.props.upgrade.id)}
         >
           Delete
         </button>

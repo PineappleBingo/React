@@ -76,13 +76,15 @@ class Upgrades extends Component {
         {this.state.upgrades.map((upgrade) => (
           <Upgrade
             key={upgrade.id}
-            id={upgrade.id}
-            name={upgrade.name}
-            energy={upgrade.energy}
-            description={upgrade.description}
-            imageUrl={upgrade.imageUrl}
-            count={upgrade.count}
+            // id={upgrade.id}
+            // name={upgrade.name}
+            // energy={upgrade.energy}
+            // description={upgrade.description}
+            // imageUrl={upgrade.imageUrl}
+            // count={upgrade.count}
             onDelete={this.handleDelete}
+            // instead, we can pass upgrade object
+            upgrade={upgrade}
           />
         ))}
       </div>
